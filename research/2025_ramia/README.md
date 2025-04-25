@@ -30,7 +30,11 @@ python3 inference.py --logdir=exp/cifar10/
 The `mi_lira_2021/inference.py` is modified to apply transformations to all point queries before computing signals from all transformed samples. The subsequent steps are in `cifar10_wideresnet_ramia.ipynb`.
 
 ### CelebA
-For CelebA, model training is included in `celeba_ramia.ipynb`. The model is defined in `facial_attribute_cnn.py`.
+For CelebA, use
+```bash
+python train_celeba_models.py
+``` 
+to train 4 models.
 
 ## Running RaMIA
 ### Purchase-100
