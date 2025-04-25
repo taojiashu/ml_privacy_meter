@@ -9,6 +9,9 @@ The code provided is refactored to reuse as many existing functions in the open-
 
 For our experiments with CelebA, the task is a multi-class classification problem where the output is 40-dimensional. Since there would be an entire seperate logic to handle this dataset, training script, signal computation and aggregation, we also simply provide the demo notebook `celeba_ramia.ipynb` one can use to run the same attack.
 
+## Installation Instructions
+For all experiments except CIFAR-10, please refer to the installation instructions of the [Privacy Meter](https://github.com/privacytrustlab/ml_privacy_meter). To run the CIFAR-10 experiments, additional JAX libraries are needed. Please refer to the CIFAR-10 section in the "Training Models" section below for more details.
+
 ## Training models
 ### Purchase-100 and AG News
 Privacy Meter automatically handles model training and data splitting. No action is needed for these two experiments.
@@ -46,7 +49,7 @@ For CelebA experiments, we also compute all loss values in `celeba_ramia.ipynb` 
 For CIFAR-10 experiments, the attack can be found in `cifar10_wideresnet_ramia.ipynb`. In particular, we first compute the loss values for all samples before we compute the RMIA signals. We then perform the trimming as mentioned in the paper.
 
 ### AG News
-For AAG News experiments with word replacement, we use the Privacy Meter's auditing with RaMIA:
+For AG News experiments with word replacement, we use the Privacy Meter's auditing with RaMIA:
 ```bash
 # clone the Privacy Meter repo to local if you have not done so
 git clone https://github.com/privacytrustlab/ml_privacy_meter.git
