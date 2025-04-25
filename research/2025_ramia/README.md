@@ -5,9 +5,9 @@ This repository contains code to reproduce the results in our paper:
 SaTML 2025
 
 ## Repository setup
-The code provided is refactored to reuse as many existing functions in the open-source [Privacy Meter](https://github.com/privacytrustlab/ml_privacy_meter) as possible. However, since the CIFAR-10 models are written in JAX, which is not very different to the PyTorch pipeline of Privacy Meter, we provide our script (adapted from [LiRA]((https://github.com/carlini/privacy/tree/better-mi/research/mi_lira_2021))) that computes the model signals in `mi_lira_2021/inference.py`, and the attack in a jupyter notebook `cifar10_wideresnet_ramia.ipynb`.
+The code provided is refactored to reuse as many existing functions in the open-source [Privacy Meter](https://github.com/privacytrustlab/ml_privacy_meter) as possible. However, since the CIFAR-10 models are written in JAX, which is not very compatible to the PyTorch pipeline of Privacy Meter, we provide our script (adapted from [LiRA]((https://github.com/carlini/privacy/tree/better-mi/research/mi_lira_2021))) that computes the model signals in `mi_lira_2021/inference.py`, and the attack in a jupyter notebook `cifar10_wideresnet_ramia.ipynb`.
 
-For our experiments with CelebA, the task is a multi-class classification problem where the output is 40-dimensional. Since there would be an entire seperate logic to handle this dataset, training script, signal computation and aggregation, we also simply provide the demo notebook `celeba_ramia.ipynb` one can use to run the same attack.
+In our experiments with CelebA, the task is a multi-class classification problem where the output is 40-dimensional. Since there would be an entire seperate logic to handle this dataset, training script, signal computation and aggregation, we also simply provide the demo notebook `celeba_ramia.ipynb` one can use to run the same attack.
 
 ## Installation Instructions
 For all experiments except CIFAR-10, please refer to the installation instructions of the [Privacy Meter](https://github.com/privacytrustlab/ml_privacy_meter). To run the CIFAR-10 experiments, additional JAX libraries are needed. Please refer to the CIFAR-10 section in the "Training Models" section below for more details.
@@ -30,10 +30,10 @@ python3 inference.py --logdir=exp/cifar10/
 The `mi_lira_2021/inference.py` is modified to apply transformations to all point queries before computing signals from all transformed samples. The subsequent steps are in `cifar10_wideresnet_ramia.ipynb`.
 
 ### CelebA
-For CelebA, model training is included in `celeba_ramia.ipynb`.
+For CelebA, model training is included in `celeba_ramia.ipynb`. The model is defined in `facial_attribute_cnn.py`.
 
 ## Running RaMIA
-### Purhcase-100
+### Purchase-100
 For Purchase-100 experiments with missing data, we use the Privacy Meter's auditing with RaMIA:
 ```bash
 # clone the Privacy Meter repo to local if you have not done so
