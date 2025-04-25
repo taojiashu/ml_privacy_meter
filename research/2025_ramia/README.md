@@ -32,6 +32,12 @@ The `mi_lira_2021/inference.py` is modified to apply transformations to all poin
 ### CelebA
 For CelebA, use
 ```bash
+# Create necessary directories
+mkdir datasets
+mkdir datasets/celeba
+mkdir saved_models
+mkdir saved_models/celeba
+
 python train_celeba_models.py
 ``` 
 to train 4 models.
